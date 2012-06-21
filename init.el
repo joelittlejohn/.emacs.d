@@ -1,5 +1,9 @@
 (add-to-list 'load-path "~/.emacs.d/")
 
+;; disable menu and toolbar
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+
 ;; charcoal theme
 (require 'color-theme)
 (color-theme-initialize)
