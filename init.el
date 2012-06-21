@@ -32,3 +32,11 @@
 
 ;; solarized theme
 ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+
+;; paredit
+;(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+;(add-hook 'clojure-mode-hook 'enable-paredit-mode)
+
+;; autopair
+(require 'autopair)
+(autopair-global-mode) ;; enable autopair in all buffers
