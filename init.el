@@ -1,4 +1,11 @@
 (add-to-list 'load-path "~/.emacs.d/")
+
+;; charcoal theme
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-charcoal-black)
+
+;; clojure support
 (require 'clojure-mode)
 
 ;; disable *GNU Emacs* buffer on startup
@@ -21,8 +28,3 @@
 
 ;; solarized theme
 ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-
-;; charcoal theme
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-charcoal-black)
