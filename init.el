@@ -34,12 +34,12 @@
 ;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 ;; paredit
-;(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
-;(add-hook 'clojure-mode-hook 'enable-paredit-mode)
+(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+(add-hook 'clojure-mode-hook 'enable-paredit-mode)
 
 ;; autopair
-(require 'autopair)
-(autopair-global-mode) ;; enable autopair in all buffers
+;(require 'autopair)
+;(autopair-global-mode) ;; enable autopair in all buffers
 
 ;; remove the 'modified buffers exist...' confirmation message
 (defun my-save-buffers-kill-emacs (&optional arg)
