@@ -1,15 +1,17 @@
-(setq inhibit-startup-screen t)
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
-(setq column-number-mode t)
 (delete-selection-mode 1)
 (global-auto-revert-mode 1)
-(icomplete-mode 1)
-(show-paren-mode 1)
 (global-hl-line-mode 1)
-(setq make-backup-files nil)
+(icomplete-mode 1)
+(menu-bar-mode -1)
+(savehist-mode 1)
 (setq auto-save-default nil)
+(setq column-number-mode t)
+(setq inhibit-startup-screen t)
+(setq load-prefer-newer t)
+(setq make-backup-files nil)
+(show-paren-mode 1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; INSTALL MELPA STABLE
@@ -19,6 +21,11 @@
 (package-initialize)
 
 ;;; INSTALL/CONFIGURE PACKAGES
+
+(unless (package-installed-p 'auto-compile)
+  (package-install 'auto-compile))
+(auto-compile-on-load-mode)
+(auto-compile-on-save-mode)
 
 (unless (package-installed-p 'auto-complete)
   (package-install 'auto-complete))
@@ -56,6 +63,14 @@
 (unless (package-installed-p 'undo-tree)
   (package-install 'undo-tree))
 (global-undo-tree-mode)
+
+(unless (package-installed-p 'browse-kill-ring)
+  (package-install 'browse-kill-ring))
+
+(unless (package-installed-p 'volatile-highlights)
+  (package-install 'volatile-highlights))
+(require 'volatile-highlights)
+(volatile-highlights-mode t)
 
 ;;; ADD ADDITIONAL CUSTOM ELISP
 
