@@ -89,3 +89,9 @@
 (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 (add-hook 'emacs-lisp-mode-hook #'eldoc-mode)
 (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+
+;;; ADDITIONAL FUNCTIONS
+
+(defun delete-whitespace-except-one ()
+  (interactive)
+  (just-one-space -1))
