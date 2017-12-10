@@ -36,6 +36,7 @@
 
 (unless (package-installed-p 'cider)
   (package-install 'cider))
+(setq cider-prompt-for-symbol nil)
 
 (unless (package-installed-p 'git-gutter)
   (package-install 'git-gutter))
