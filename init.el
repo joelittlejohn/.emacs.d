@@ -42,6 +42,13 @@
   (package-install 'git-gutter))
 (global-git-gutter-mode +1)
 
+(unless (package-installed-p 'json-mode)
+  (package-install 'json-mode))
+(let ((width 2))
+  (setq js-indent-level width)
+  (setq json-reformat:indent-width width)
+  (setq tab-width width))
+
 (unless (package-installed-p 'nyan-mode)
   (package-install 'nyan-mode))
 (nyan-mode)
@@ -89,6 +96,9 @@
 (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 (add-hook 'emacs-lisp-mode-hook #'eldoc-mode)
 (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
+
+(add-hook 'json-mode-hook #'paredit-mode)
+(add-hook 'json-mode-hook #'rainbow-delimiters-mode)
 
 ;;; ADDITIONAL FUNCTIONS
 
