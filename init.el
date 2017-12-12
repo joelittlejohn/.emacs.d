@@ -100,6 +100,9 @@
 (unless (package-installed-p 'browse-kill-ring)
   (package-install 'browse-kill-ring))
 
+(unless (package-installed-p 'terraform-mode)
+  (package-install 'terraform-mode))
+
 (unless (package-installed-p 'volatile-highlights)
   (package-install 'volatile-highlights))
 (require 'volatile-highlights)
