@@ -3,6 +3,7 @@
 (global-hl-line-mode 1)
 (icomplete-mode 1)
 (menu-bar-mode -1)
+(recentf-mode 1)
 (savehist-mode 1)
 (setq auto-save-default nil)
 (setq column-number-mode t)
@@ -37,6 +38,10 @@
 (unless (package-installed-p 'cider)
   (package-install 'cider))
 (setq cider-prompt-for-symbol nil)
+
+(unless (package-installed-p 'dashboard)
+  (package-install 'dashboard))
+(dashboard-setup-startup-hook)
 
 (unless (package-installed-p 'git-gutter)
   (package-install 'git-gutter))
