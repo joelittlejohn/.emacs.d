@@ -39,6 +39,9 @@
   (package-install 'cider))
 (setq cider-prompt-for-symbol nil)
 
+(unless (package-installed-p 'clj-refactor)
+  (package-install 'clj-refactor))
+
 (unless (package-installed-p 'dashboard)
   (package-install 'dashboard))
 (dashboard-setup-startup-hook)
@@ -97,6 +100,7 @@
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'eldoc-mode)
 (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook #'clj-refactor-mode)
 
 (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 (add-hook 'emacs-lisp-mode-hook #'eldoc-mode)
