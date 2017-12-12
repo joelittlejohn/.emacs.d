@@ -49,6 +49,13 @@
 (setq cider-prompt-for-symbol nil)
 (setq cider-overlays-use-font-lock t)
 
+(unless (package-installed-p 'highlight)
+  (package-install 'highlight))
+(unless (package-installed-p 'eval-sexp-fu)
+  (package-install 'eval-sexp-fu))
+(unless (package-installed-p 'cider-eval-sexp-fu)
+  (package-install 'cider-eval-sexp-fu))
+
 (unless (package-installed-p 'clj-refactor)
   (package-install 'clj-refactor))
 
