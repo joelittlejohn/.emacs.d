@@ -13,6 +13,7 @@
 (show-paren-mode 1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; INSTALL MELPA STABLE
@@ -38,6 +39,7 @@
 (unless (package-installed-p 'cider)
   (package-install 'cider))
 (setq cider-prompt-for-symbol nil)
+(setq cider-overlays-use-font-lock t)
 
 (unless (package-installed-p 'clj-refactor)
   (package-install 'clj-refactor))
@@ -96,6 +98,8 @@
 (color-theme-cyberpunk)
 
 ;;; CONFIGURE MODES
+
+(add-hook 'cider-repl-mode-hook #'paredit-mode)
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'eldoc-mode)
