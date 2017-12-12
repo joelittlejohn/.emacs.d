@@ -15,14 +15,22 @@
 (tool-bar-mode -1)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (defalias 'yes-or-no-p 'y-or-n-p)
+(add-to-list 'load-path "~/.emacs.d/elisp")
 
 ;; INSTALL MELPA STABLE
 
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(setq package-archive-priorities
+      '(("melpa-stable" . 20)
+        ("melpa" . 0)))
 (package-initialize)
 
 ;;; INSTALL/CONFIGURE PACKAGES
+
+(unless (package-installed-p 'color-theme)
+  (package-install 'color-theme))
 
 (unless (package-installed-p 'auto-compile)
   (package-install 'auto-compile))
@@ -92,7 +100,6 @@
 
 ;;; ADD ADDITIONAL CUSTOM ELISP
 
-(add-to-list 'load-path "~/.emacs.d/elisp")
 (load "bindings")
 (load "cyberpunk")
 (color-theme-cyberpunk)
