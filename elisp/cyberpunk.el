@@ -1,9 +1,15 @@
-;; Cyberpunk Colour Theme
+;;; cyberpunk.el --- A high contrast theme, taken from emacs-live
+
+;;; Commentary:
+
+;; Cyberpunk Colour Theme © Sam Aaron
 ;;
 ;; "and he'd still see the matrix in his sleep, bright lattices of logic
 ;; unfolding across that colorless void..."
 ;;                   William Gibson, Neuromancer.
 ;;
+
+;;; Code:
 
 (require 'color-theme)
 
@@ -247,3 +253,6 @@
 ; '(ediff-odd-diff-A ((((class color)) nil)))
 ; '(ediff-odd-diff-B ((((class color)) nil)))
  )
+
+(provide 'cyberpunk)
+;;; cyberpunk.el ends here

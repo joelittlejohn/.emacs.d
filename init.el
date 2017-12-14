@@ -1,3 +1,16 @@
+;;; init.el --- Emacs config of Joe Littlejohn
+;;; Commentary:
+
+;; An Emacs configuration inspired by the features of emacs-live by
+;; Sam Aaron.  A configuration for Clojure, Terraform, bash, and more.
+;;
+;; My goal here is to create a leaner configuration than emacs-live -
+;; one that has similar useful minor modes and configuration for Clojure
+;; but starts more quickly and allows me to use the latest cider (&
+;; family).
+
+;;; Code:
+
 (delete-selection-mode 1)
 (global-auto-revert-mode 1)
 (global-hl-line-mode 1)
@@ -110,8 +123,7 @@
 
 ;;; ADD ADDITIONAL CUSTOM ELISP
 
-(load "bindings")
-(load "cyberpunk")
+(require 'cyberpunk)
 (color-theme-cyberpunk)
 
 ;;; CONFIGURE MODES
@@ -149,3 +161,6 @@
 (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square)
 (define-key paredit-mode-map (kbd "M-{") 'paredit-wrap-curly)
 (define-key paredit-mode-map (kbd "M-T") 'transpose-sexps)
+
+(provide 'init)
+;;; init.el ends here
