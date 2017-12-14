@@ -76,6 +76,10 @@
   (package-install 'dashboard))
 (dashboard-setup-startup-hook)
 
+(unless (package-installed-p 'flycheck)
+  (package-install 'flycheck))
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 (unless (package-installed-p 'git-gutter)
   (package-install 'git-gutter))
 (global-git-gutter-mode +1)
