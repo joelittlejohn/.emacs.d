@@ -4,3 +4,4 @@ history
 elpa
 *.last
 *.dat
+*.elc
