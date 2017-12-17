@@ -92,6 +92,10 @@
   (package-install 'cider-eval-sexp-fu))
 (require 'cider-eval-sexp-fu)
 
+(unless (package-installed-p 'smex)
+  (package-install 'smex))
+(smex-initialize)
+
 (unless (package-installed-p 'dashboard)
   (package-install 'dashboard))
 (dashboard-setup-startup-hook)
@@ -213,6 +217,8 @@
 (global-set-key (kbd "C-x C-<down>") 'windmove-down)
 
 (global-set-key (kbd "M-\\") ' delete-whitespace-except-one)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 (require 'paredit)
 (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square)
