@@ -207,10 +207,17 @@
 
 ;;; ADDITIONAL FUNCTIONS
 
-(defun delete-whitespace-except-one ()
-  "Deletes all but one space between two symbols or sexps, and works across newlines."
+(defun delete-horizontal-space ()
+  "Deletes all horizontal space between two symbols."
   (interactive)
-  (just-one-space -1))
+  (just-one-space -1)
+  (delete-backward-char 1))
+
+(defun paredit-delete-horizontal-space ()
+  "Deletes all horizontal space between two sexps in paredit mode."
+  (interactive)
+  (just-one-space -1)
+  (paredit-backward-delete))
 
 ;;; ADDITIONAL BINDINGS
 
@@ -220,7 +227,7 @@
 (global-set-key (kbd "C-x C-<down>") 'windmove-down)
 (global-set-key (kbd "C-s") 'swiper)
 
-(global-set-key (kbd "M-\\") ' delete-whitespace-except-one)
+(global-set-key (kbd "M-\\") 'delete-horizontal-space)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
@@ -228,6 +235,7 @@
 (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square)
 (define-key paredit-mode-map (kbd "M-{") 'paredit-wrap-curly)
 (define-key paredit-mode-map (kbd "M-T") 'transpose-sexps)
+(define-key paredit-mode-map (kbd "M-\\") 'paredit-delete-horizontal-space)
 
 (provide 'init)
 ;;; init.el ends here
