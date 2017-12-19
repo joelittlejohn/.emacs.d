@@ -141,6 +141,9 @@
 (unless (package-installed-p 'browse-kill-ring)
   (package-install 'browse-kill-ring))
 
+(unless (package-installed-p 'swiper)
+  (package-install 'swiper))
+
 (unless (package-installed-p 'terraform-mode)
   (package-install 'terraform-mode))
 
@@ -215,6 +218,7 @@
 (global-set-key (kbd "C-x C-<right>") 'windmove-right)
 (global-set-key (kbd "C-x C-<up>") 'windmove-up)
 (global-set-key (kbd "C-x C-<down>") 'windmove-down)
+(global-set-key (kbd "C-s") 'swiper)
 
 (global-set-key (kbd "M-\\") ' delete-whitespace-except-one)
 (global-set-key (kbd "M-x") 'smex)
