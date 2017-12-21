@@ -5,3 +5,4 @@ elpa
 *.last
 *.dat
 *.elc
+.mc-lists.el

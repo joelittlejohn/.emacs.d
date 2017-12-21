@@ -43,9 +43,6 @@
 
 ;;; INSTALL/CONFIGURE PACKAGES
 
-(unless (package-installed-p 'color-theme)
-  (package-install 'color-theme))
-
 (unless (package-installed-p 'auto-compile)
   (package-install 'auto-compile))
 (auto-compile-on-load-mode)
@@ -54,6 +51,9 @@
 (unless (package-installed-p 'auto-complete)
   (package-install 'auto-complete))
 (global-auto-complete-mode t)
+
+(unless (package-installed-p 'browse-kill-ring)
+  (package-install 'browse-kill-ring))
 
 (unless (package-installed-p 'clojure-mode)
   (package-install 'clojure-mode))
@@ -92,9 +92,8 @@
   (package-install 'cider-eval-sexp-fu))
 (require 'cider-eval-sexp-fu)
 
-(unless (package-installed-p 'smex)
-  (package-install 'smex))
-(smex-initialize)
+(unless (package-installed-p 'color-theme)
+  (package-install 'color-theme))
 
 (unless (package-installed-p 'dashboard)
   (package-install 'dashboard))
@@ -134,12 +133,9 @@
 (unless (package-installed-p 'rainbow-delimiters)
   (package-install 'rainbow-delimiters))
 
-(unless (package-installed-p 'undo-tree)
-  (package-install 'undo-tree))
-(global-undo-tree-mode)
-
-(unless (package-installed-p 'browse-kill-ring)
-  (package-install 'browse-kill-ring))
+(unless (package-installed-p 'smex)
+  (package-install 'smex))
+(smex-initialize)
 
 (unless (package-installed-p 'swiper)
   (package-install 'swiper))
@@ -151,6 +147,10 @@
   (package-install 'volatile-highlights))
 (require 'volatile-highlights)
 (volatile-highlights-mode t)
+
+(unless (package-installed-p 'undo-tree)
+  (package-install 'undo-tree))
+(global-undo-tree-mode)
 
 (unless (package-installed-p 'popwin)
   (package-install 'popwin))
