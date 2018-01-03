@@ -122,6 +122,9 @@
   (setq json-reformat:indent-width width)
   (setq tab-width width))
 
+(unless (package-installed-p 'markdown-mode)
+  (package-install 'markdown-mode))
+
 (unless (package-installed-p 'nyan-mode)
   (package-install 'nyan-mode))
 (nyan-mode)
