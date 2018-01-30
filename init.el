@@ -155,6 +155,9 @@
   (package-install 'undo-tree))
 (global-undo-tree-mode)
 
+(unless (package-installed-p 'yaml-mode)
+  (package-install 'yaml-mode))
+
 (unless (package-installed-p 'popwin)
   (package-install 'popwin))
 (require 'popwin)
