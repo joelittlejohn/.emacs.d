@@ -213,7 +213,7 @@
 
 ;;; ADDITIONAL FUNCTIONS
 
-(defun delete-horizontal-space ()
+(defun delete-all-horizontal-space ()
   "Deletes all horizontal space between two symbols."
   (interactive)
   (just-one-space -1)
@@ -233,7 +233,7 @@
 (global-set-key (kbd "C-x C-<down>") 'windmove-down)
 (global-set-key (kbd "C-s") 'swiper)
 
-(global-set-key (kbd "M-\\") 'delete-horizontal-space)
+(global-set-key (kbd "M-\\") 'delete-all-horizontal-space)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
