@@ -41,6 +41,9 @@
         ("melpa" . 0)))
 (package-initialize)
 
+(when (not package-archive-contents)
+    (package-refresh-contents))
+
 ;;; INSTALL/CONFIGURE PACKAGES
 
 (unless (package-installed-p 'auto-compile)
