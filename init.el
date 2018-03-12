@@ -68,24 +68,25 @@
 
 (unless (package-installed-p 'clj-refactor)
   (package-install 'clj-refactor))
-(setq cljr-magic-require-namespaces '(("async" . "clojure.core.async")
-				      ("component" . "com.stuartsierra.component")
-                                      ("csk" . "camel-snake-kebab.core")
-                                      ("edn" . "clojure.edn")
-                                      ("fum" . "flatland.useful.map")
-                                      ("fus" . "flatland.useful.seq")
-                                      ("http" . "clj-http.client")
-                                      ("io" . "clojure.java.io")
-                                      ("json" . "cheshire.core")
-                                      ("jdbc" . "clojure.java.jdbc")
-                                      ("log" . "clojure.tools.logging")
-                                      ("memo" . "clojure.core.memoize")
-                                      ("s" . "schema.core")
-                                      ("set" . "clojure.set")
-                                      ("str" . "clojure.string")
-                                      ("time" . "clj-time.core")
-                                      ("time-format" . "clj-time.format")
-                                      ("time-coerce" . "clj-time.coerce")))
+(setq cljr-magic-require-namespaces
+      '(("async" . "clojure.core.async")
+	("component" . "com.stuartsierra.component")
+	("csk" . "camel-snake-kebab.core")
+	("edn" . "clojure.edn")
+	("fum" . "flatland.useful.map")
+	("fus" . "flatland.useful.seq")
+	("http" . "clj-http.client")
+	("io" . "clojure.java.io")
+	("json" . "cheshire.core")
+	("jdbc" . "clojure.java.jdbc")
+	("log" . "clojure.tools.logging")
+	("memo" . "clojure.core.memoize")
+	("s" . "schema.core")
+	("set" . "clojure.set")
+	("str" . "clojure.string")
+	("time" . "clj-time.core")
+	("time-format" . "clj-time.format")
+	("time-coerce" . "clj-time.coerce")))
 
 (unless (package-installed-p 'highlight)
   (package-install 'highlight))
@@ -213,6 +214,9 @@
 
 (add-hook 'json-mode-hook #'paredit-mode)
 (add-hook 'json-mode-hook #'rainbow-delimiters-mode)
+
+(add-hook 'terraform-mode-hook #'paredit-mode)
+(add-hook 'terraform-mode-hook #'rainbow-delimiters-mode)
 
 ;;; ADDITIONAL FUNCTIONS
 
