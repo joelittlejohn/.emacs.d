@@ -97,7 +97,10 @@
 (require 'cider-eval-sexp-fu)
 
 (unless (package-installed-p 'color-theme)
-  (package-install 'color-theme))
+  (package-install 'color-theme)
+  (make-directory "~/.emacs.d/elpa/color-theme-20070910.1007/themes"))
+(require 'cyberpunk)
+(color-theme-cyberpunk)
 
 (unless (package-installed-p 'dashboard)
   (package-install 'dashboard))
@@ -193,11 +196,6 @@
         ("*Kill Ring*" :height 30)
         ("*Compile-Log*" :height 30 :stick t)
         ("*git-gutter:diff*" :height 30 :stick t)))
-
-;;; ADD ADDITIONAL CUSTOM ELISP
-
-(require 'cyberpunk)
-(color-theme-cyberpunk)
 
 ;;; CONFIGURE MODES
 
