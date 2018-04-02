@@ -83,10 +83,12 @@
 	("memo" . "clojure.core.memoize")
 	("s" . "schema.core")
 	("set" . "clojure.set")
+	("spec" . "clojure.spec.alpha")
 	("str" . "clojure.string")
 	("time" . "clj-time.core")
 	("time-format" . "clj-time.format")
-	("time-coerce" . "clj-time.coerce")))
+	("time-coerce" . "clj-time.coerce")
+	("walk" . "clojure.walk")))
 
 (unless (package-installed-p 'highlight)
   (package-install 'highlight))
