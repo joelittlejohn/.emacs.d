@@ -125,6 +125,10 @@
   (package-install 'git-gutter))
 (global-git-gutter-mode +1)
 
+(unless (package-installed-p 'goto-last-change)
+  (package-install 'goto-last-change))
+(global-set-key (kbd "C-c C-/") 'goto-last-change)
+
 (unless (package-installed-p 'json-mode)
   (package-install 'json-mode))
 (let ((width 2))
@@ -150,6 +154,12 @@
   (package-install 'smex))
 (smex-initialize)
 
+(unless (package-installed-p 'string-inflection)
+  (package-install 'string-inflection))
+(require 'string-inflection)
+(global-set-key (kbd "C-c C-u") 'string-inflection-all-cycle)
+
+
 (unless (package-installed-p 'swiper)
   (package-install 'swiper))
 
@@ -167,6 +177,11 @@
 
 (unless (package-installed-p 'yaml-mode)
   (package-install 'yaml-mode))
+
+(unless (package-installed-p 'which-key)
+  (package-install 'which-key))
+(require 'which-key)
+(which-key-mode)
 
 (unless (package-installed-p 'popwin)
   (package-install 'popwin))
