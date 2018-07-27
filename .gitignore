@@ -6,3 +6,4 @@ elpa
 *.dat
 *.elc
 .mc-lists.el
+session.*

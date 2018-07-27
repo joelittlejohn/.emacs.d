@@ -73,6 +73,7 @@
 	("component" . "com.stuartsierra.component")
 	("csk" . "camel-snake-kebab.core")
 	("edn" . "clojure.edn")
+	("far" . "taoensso.faraday")
 	("fum" . "flatland.useful.map")
 	("fus" . "flatland.useful.seq")
 	("http" . "clj-http.client")
