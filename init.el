@@ -136,6 +136,9 @@
   (setq json-reformat:indent-width width)
   (setq tab-width width))
 
+(unless (package-installed-p 'magit)
+  (package-install 'magit))
+
 (unless (package-installed-p 'markdown-mode)
   (package-install 'markdown-mode))
 
@@ -165,6 +168,9 @@
 
 (unless (package-installed-p 'terraform-mode)
   (package-install 'terraform-mode))
+
+(unless (package-installed-p 'tickscript-mode)
+  (package-install 'tickscript-mode))
 
 (unless (package-installed-p 'volatile-highlights)
   (package-install 'volatile-highlights))
