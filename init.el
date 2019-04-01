@@ -109,6 +109,9 @@
   (package-install 'dashboard))
 (dashboard-setup-startup-hook)
 
+(unless (package-installed-p 'dockerfile-mode)
+  (package-install 'dockerfile-mode))
+
 (unless (package-installed-p 'flx-ido)
   (package-install 'flx-ido))
 (ido-mode 1)
@@ -124,6 +127,9 @@
 (unless (package-installed-p 'git-gutter)
   (package-install 'git-gutter))
 (global-git-gutter-mode +1)
+
+(unless (package-installed-p 'go-mode)
+  (package-install 'go-mode))
 
 (unless (package-installed-p 'goto-last-change)
   (package-install 'goto-last-change))
@@ -161,7 +167,6 @@
   (package-install 'string-inflection))
 (require 'string-inflection)
 (global-set-key (kbd "C-c C-u") 'string-inflection-all-cycle)
-
 
 (unless (package-installed-p 'swiper)
   (package-install 'swiper))
