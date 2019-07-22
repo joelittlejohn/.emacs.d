@@ -20,6 +20,7 @@
 (savehist-mode 1)
 (setq auto-save-default nil)
 (setq column-number-mode t)
+(setq-default indent-tabs-mode nil)
 (setq inhibit-startup-screen t)
 (setq load-prefer-newer t)
 (setq make-backup-files nil)
@@ -166,7 +167,8 @@
 (unless (package-installed-p 'string-inflection)
   (package-install 'string-inflection))
 (require 'string-inflection)
-(global-set-key (kbd "C-c C-u") 'string-inflection-all-cycle)
+(global-set-key (kbd "C-c C-u") 'string-inflection-upcase)
+(global-set-key (kbd "C-c C-k") 'string-inflection-lisp)
 
 (unless (package-installed-p 'swiper)
   (package-install 'swiper))
@@ -279,3 +281,22 @@
 
 (provide 'init)
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (php-mode popwin which-key yaml-mode undo-tree volatile-highlights tickscript-mode terraform-mode swiper string-inflection smex rainbow-delimiters nyan-mode markdown-mode magit json-mode goto-last-change go-mode git-gutter flycheck flx-ido dockerfile-mode dashboard highlight color-theme clj-refactor cider-eval-sexp-fu browse-kill-ring auto-complete auto-compile))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ediff-even-diff-A ((((class color) (background dark)) (:background "dark green"))))
+ '(ediff-even-diff-B ((((class color) (background dark)) (:background "dark red"))))
+ '(ediff-odd-diff-A ((((class color) (background dark)) (:background "dark green"))))
+ '(ediff-odd-diff-B ((((class color) (background dark)) (:background "dark red"))))
+ '(mumamo-background-chunk-major ((((class color) (background dark)) (:background "black"))))
+ '(mumamo-background-chunk-submode1 ((((class color) (background dark)) (:background "black")))))
