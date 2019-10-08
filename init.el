@@ -101,8 +101,8 @@
 (require 'cider-eval-sexp-fu)
 
 (unless (package-installed-p 'color-theme)
-  (package-install 'color-theme)
-  (make-directory "~/.emacs.d/elpa/color-theme-20070910.1007/themes"))
+  (package-install 'color-theme))
+(require 'color-theme)
 (require 'cyberpunk)
 (color-theme-cyberpunk)
 
