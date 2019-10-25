@@ -11,26 +11,26 @@
 
 ;;; Code:
 
-(delete-selection-mode 1)
-(global-auto-revert-mode 1)
-(global-hl-line-mode 1)
-(icomplete-mode 1)
-(menu-bar-mode -1)
-(recentf-mode 1)
-(savehist-mode 1)
-(setq auto-save-default nil)
-(setq column-number-mode t)
-(setq-default indent-tabs-mode nil)
-(setq inhibit-startup-screen t)
-(setq load-prefer-newer t)
-(setq make-backup-files nil)
-(setq warning-minimum-level :emergency)
-(show-paren-mode 1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-(defalias 'yes-or-no-p 'y-or-n-p)
-(add-to-list 'load-path "~/.emacs.d/elisp")
+(delete-selection-mode 1) ; overwrite selected text when you type or paste
+(global-auto-revert-mode 1) ; immediately reload a buffer if it changes on disk
+(global-hl-line-mode 1) ; show a faint highlight on the current line
+(icomplete-mode 1) ; show matching completions as you type in the minibuffer
+(menu-bar-mode -1) ; hide the menu bar from emacs windows (File|Edit|Options...)
+(toggle-scroll-bar -1) ; hide scrollbars in buffers
+(tool-bar-mode -1) ; hide the toolbar (row of icons at the top of the window)
+(recentf-mode 1) ; remember recently opened files
+(savehist-mode 1) ; save minibuffer histories to suggest recently used files/functions/etc
+(setq auto-save-default nil) ; turn off autosave on files
+(setq column-number-mode t) ; include current column number in the modeline
+(setq-default indent-tabs-mode nil) ; disable tabs for indentation
+(setq inhibit-startup-screen t) ; don't show an Emacs start buffer
+(setq load-prefer-newer t) ; prefer to load newer .el files over existing .elc (compiled) files
+(setq make-backup-files nil) ; stop emacs creating backup copies of the file being edited
+(setq warning-minimum-level :emergency) ; reduce warnings logged
+(show-paren-mode 1) ; highlight matching pairs of parens
+(add-hook 'before-save-hook 'delete-trailing-whitespace) ; fix trailing whitespace errors when saving
+(defalias 'yes-or-no-p 'y-or-n-p) ; always allow y an n to mean yes and no
+(add-to-list 'load-path "~/.emacs.d/elisp") ; allow custom scripts to be dropped in ~/.emacs.d/elisp
 
 ;; INSTALL MELPA STABLE
 
@@ -64,7 +64,7 @@
 
 (unless (package-installed-p 'cider)
   (package-install 'cider))
-(setq cider-prompt-for-symbol nil)
+(setq cider-prompt-for-symbol nil) ; stop cider asking for confirmation before every C-. navigation
 (setq cider-overlays-use-font-lock t)
 
 (unless (package-installed-p 'clj-refactor)
