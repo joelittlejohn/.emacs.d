@@ -275,5 +275,11 @@
 (define-key paredit-mode-map (kbd "M-T") 'transpose-sexps)
 (define-key paredit-mode-map (kbd "M-\\") 'paredit-delete-horizontal-space)
 
+(require 'cider)
+(define-key cider-mode-map (kbd "C-c M-q") 'cider-quit)
+(define-key cider-repl-mode-map (kbd "C-c M-q") 'cider-quit)
+(define-key cider-mode-map (kbd "C-c M-r") 'sesman-restart)
+(define-key cider-repl-mode-map (kbd "C-c M-r") 'sesman-restart)
+
 (provide 'init)
 ;;; init.el ends here
