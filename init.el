@@ -121,6 +121,10 @@
   (package-install 'flycheck))
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+(unless (package-installed-p 'flycheck-clj-kondo)
+  (package-install 'flycheck-clj-kondo))
+(require 'flycheck-clj-kondo)
+
 (unless (package-installed-p 'git-gutter)
   (package-install 'git-gutter))
 (global-git-gutter-mode +1)
