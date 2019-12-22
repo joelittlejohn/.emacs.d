@@ -268,6 +268,7 @@
 (global-set-key (kbd "C-x C-<up>") 'windmove-up)
 (global-set-key (kbd "C-x C-<down>") 'windmove-down)
 (global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (global-set-key (kbd "M-\\") 'delete-all-horizontal-space)
 (global-set-key (kbd "M-x") 'smex)
