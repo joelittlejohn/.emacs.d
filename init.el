@@ -46,7 +46,13 @@
 (package-initialize)
 
 (when (not package-archive-contents)
-    (package-refresh-contents))
+  (package-refresh-contents))
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 
 ;;; INSTALL/CONFIGURE PACKAGES
 
@@ -296,4 +302,33 @@
 (define-key cider-repl-mode-map (kbd "C-c M-r") 'sesman-restart)
 
 (provide 'init)
+
+
+;;; Scala/Metals
+;;; The following was taken from https://scalameta.org/metals/docs/editors/emacs.html
+;;;
+(use-package scala-mode
+  :mode "\\.s\\(cala\\|bt\\)$")
+
+(use-package sbt-mode
+  :commands sbt-start sbt-command
+  :config
+  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+  ;; allows using SPACE when in the minibuffer
+  (substitute-key-definition
+   'minibuffer-complete-word
+   'self-insert-command
+   minibuffer-local-completion-map)
+   ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
+   (setq sbt:program-options '("-Dsbt.supershell=false")))
+
+(use-package lsp-mode
+  ;; Optional - enable lsp-mode automatically in scala files
+  :hook  (scala-mode . lsp)
+         (lsp-mode . lsp-lens-mode)
+  :config (setq lsp-prefer-flymake nil))
+
+(use-package lsp-ui)
+(use-package company-lsp)
+
 ;;; init.el ends here
