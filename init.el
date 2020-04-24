@@ -266,6 +266,10 @@
 
 ;;; ADDITIONAL BINDINGS
 
+(when (eq system-type 'darwin)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier nil))
+
 (global-set-key (kbd "C-x C-<left>") 'windmove-left)
 (global-set-key (kbd "C-x C-<right>") 'windmove-right)
 (global-set-key (kbd "C-x C-<up>") 'windmove-up)
