@@ -32,6 +32,9 @@
 (defalias 'yes-or-no-p 'y-or-n-p) ; always allow y an n to mean yes and no
 (add-to-list 'load-path "~/.emacs.d/elisp") ; allow custom scripts to be dropped in ~/.emacs.d/elisp
 
+(if (not (display-graphic-p))
+    (global-display-line-numbers-mode))
+
 ;; INSTALL MELPA STABLE
 
 (require 'package)
@@ -275,7 +278,9 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 (require 'paredit)
-(define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square)
+(if (display-graphic-p)
+    ;; Don't define this binding for terminal Emacs, it will ruin all required key escapes
+    (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square))
 (define-key paredit-mode-map (kbd "M-{") 'paredit-wrap-curly)
 (define-key paredit-mode-map (kbd "M-T") 'transpose-sexps)
 (define-key paredit-mode-map (kbd "M-\\") 'paredit-delete-horizontal-space)
