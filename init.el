@@ -41,8 +41,8 @@
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (setq package-archive-priorities
-      '(("melpa-stable" . 20)
-        ("melpa" . 0)))
+      '(("melpa-stable" . 0)
+        ("melpa" . 20)))
 (package-initialize)
 
 (when (not package-archive-contents)
