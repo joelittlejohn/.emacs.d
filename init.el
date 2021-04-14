@@ -225,6 +225,8 @@
 (add-hook 'json-mode-hook #'paredit-mode)
 (add-hook 'json-mode-hook #'rainbow-delimiters-mode)
 
+(add-hook 'scala-mode-hook #'rainbow-delimiters-mode)
+
 (add-hook 'terraform-mode-hook #'paredit-mode)
 (add-hook 'terraform-mode-hook #'rainbow-delimiters-mode)
 
@@ -279,8 +281,9 @@
 ;;; Scala/Metals
 ;;; The following was taken from https://scalameta.org/metals/docs/editors/emacs.html
 ;;;
+
 (use-package scala-mode
-  :mode "\\.s\\(cala\\|bt\\)$")
+  :interpreter ("scala" . scala-mode))
 
 (use-package sbt-mode
   :commands sbt-start sbt-command
