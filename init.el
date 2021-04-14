@@ -211,6 +211,8 @@
 
 ;;; CONFIGURE MODES
 
+(add-to-list 'auto-mode-alist '("\\.avsc\\'" . json-mode))
+
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
