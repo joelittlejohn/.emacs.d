@@ -249,6 +249,7 @@
 ;;; ADDITIONAL BINDINGS
 
 (when (eq system-type 'darwin)
+  (setq ring-bell-function 'ignore)
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier nil))
 
