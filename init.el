@@ -73,7 +73,7 @@
 
 (use-package clj-refactor)
 (setq cljr-magic-require-namespaces
-      '(("async" . "clojure.core.async")
+  '(("async" . "clojure.core.async")
 	("component" . "com.stuartsierra.component")
 	("csk" . "camel-snake-kebab.core")
 	("edn" . "clojure.edn")
@@ -86,9 +86,10 @@
 	("jdbc" . "clojure.java.jdbc")
 	("log" . "clojure.tools.logging")
 	("memo" . "clojure.core.memoize")
-	("s" . "schema.core")
+	("s" . "clojure.spec.alpha")
 	("set" . "clojure.set")
-	("spec" . "clojure.spec.alpha")
+    ("sgen" . "clojure.spec.gen.alpha")
+    ("stest" . "clojure.spec.test.alpha")
 	("str" . "clojure.string")
 	("time" . "clj-time.core")
 	("time-format" . "clj-time.format")
