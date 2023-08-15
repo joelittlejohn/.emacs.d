@@ -3,7 +3,13 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        goto-last-change
+        paredit-close-square
+        paredit-open-square
+        paredit-semicolon
+        paredit-wrap-round
         smex
+        swiper
         ))
 
 (setq mc/cmds-to-run-once

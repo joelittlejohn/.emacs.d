@@ -20,6 +20,7 @@
 (tool-bar-mode -1) ; hide the toolbar (row of icons at the top of the window)
 (recentf-mode 1) ; remember recently opened files
 (savehist-mode 1) ; save minibuffer histories to suggest recently used files/functions/etc
+(setq-default fill-column 80) ; Use 80 char line length when formatting paragraphs using M-q
 (setq auto-save-default nil) ; turn off autosave on files
 (setq column-number-mode t) ; include current column number in the modeline
 (setq-default indent-tabs-mode nil) ; disable tabs for indentation
@@ -65,7 +66,30 @@
 
 (use-package browse-kill-ring)
 
-(use-package clojure-mode)
+(use-package flycheck-clj-kondo
+  :ensure t)
+
+(use-package clojure-mode
+  :ensure t
+  :config
+  (require 'flycheck-clj-kondo))
+
+(use-package lsp-mode
+  :ensure t
+  :hook ((clojure-mode . lsp)
+         (clojurec-mode . lsp)
+         (clojurescript-mode . lsp))
+  :config
+  ;; add paths to your local installation of project mgmt tools, like lein
+  (setenv "PATH" (concat
+                   "/usr/local/bin" path-separator
+                   (getenv "PATH")))
+  (dolist (m '(clojure-mode
+               clojurec-mode
+               clojurescript-mode
+               clojurex-mode))
+     (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
+  (setq lsp-clojure-server-command '("/usr/bin/clojure-lsp")))
 
 (use-package cider)
 (setq cider-prompt-for-symbol nil) ; stop cider asking for confirmation before every C-. navigation
@@ -106,6 +130,8 @@
 (require 'cyberpunk)
 (color-theme-cyberpunk)
 
+(use-package company)
+
 (use-package dockerfile-mode)
 
 (use-package dotenv-mode)
@@ -120,9 +146,6 @@
 (use-package flycheck)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
-
-(use-package flycheck-clj-kondo)
-(require 'flycheck-clj-kondo)
 
 (use-package git-gutter)
 (global-git-gutter-mode +1)
@@ -141,9 +164,13 @@
   (setq json-reformat:indent-width width)
   (setq tab-width width))
 
+(use-package lsp-mode)
+(use-package lsp-treemacs)
+
 (use-package magit)
 
 (use-package markdown-mode)
+(add-hook 'markdown-mode-hook #'flyspell-mode)
 
 (use-package nyan-mode)
 (nyan-mode)
@@ -277,36 +304,3 @@
 (define-key cider-repl-mode-map (kbd "C-c M-q") 'cider-quit)
 (define-key cider-mode-map (kbd "C-c M-r") 'sesman-restart)
 (define-key cider-repl-mode-map (kbd "C-c M-r") 'sesman-restart)
-
-(provide 'init)
-
-
-;;; Scala/Metals
-;;; The following was taken from https://scalameta.org/metals/docs/editors/emacs.html
-;;;
-
-(use-package scala-mode
-  :interpreter ("scala" . scala-mode))
-
-(use-package sbt-mode
-  :commands sbt-start sbt-command
-  :config
-  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
-  ;; allows using SPACE when in the minibuffer
-  (substitute-key-definition
-   'minibuffer-complete-word
-   'self-insert-command
-   minibuffer-local-completion-map)
-   ;; sbt-supershell kills sbt-mode:  https://github.com/hvesalai/emacs-sbt-mode/issues/152
-   (setq sbt:program-options '("-Dsbt.supershell=false")))
-
-(use-package lsp-mode
-  ;; Optional - enable lsp-mode automatically in scala files
-  :hook  (scala-mode . lsp)
-         (lsp-mode . lsp-lens-mode)
-  :config (setq lsp-prefer-flymake nil))
-
-(use-package lsp-ui)
-(use-package company-lsp)
-
-;;; init.el ends here

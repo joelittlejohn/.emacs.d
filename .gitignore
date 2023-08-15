@@ -8,3 +8,4 @@ elpa
 .*
 /transient
 session.*
+smex-items
