@@ -74,23 +74,6 @@
   :config
   (require 'flycheck-clj-kondo))
 
-(use-package lsp-mode
-  :ensure t
-  :hook ((clojure-mode . lsp)
-         (clojurec-mode . lsp)
-         (clojurescript-mode . lsp))
-  :config
-  ;; add paths to your local installation of project mgmt tools, like lein
-  (setenv "PATH" (concat
-                   "/usr/local/bin" path-separator
-                   (getenv "PATH")))
-  (dolist (m '(clojure-mode
-               clojurec-mode
-               clojurescript-mode
-               clojurex-mode))
-     (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
-  (setq lsp-clojure-server-command '("/usr/bin/clojure-lsp")))
-
 (use-package cider)
 (setq cider-prompt-for-symbol nil) ; stop cider asking for confirmation before every C-. navigation
 (setq cider-overlays-use-font-lock t)
@@ -164,9 +147,6 @@
   (setq json-reformat:indent-width width)
   (setq tab-width width))
 
-(use-package lsp-mode)
-(use-package lsp-treemacs)
-
 (use-package magit)
 
 (use-package markdown-mode)
@@ -198,6 +178,7 @@
 
 (use-package undo-tree)
 (global-undo-tree-mode)
+(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
 (use-package yaml-mode)
 
@@ -254,8 +235,6 @@
 (add-hook 'json-mode-hook #'paredit-mode)
 (add-hook 'json-mode-hook #'rainbow-delimiters-mode)
 
-(add-hook 'scala-mode-hook #'rainbow-delimiters-mode)
-
 (add-hook 'terraform-mode-hook #'paredit-mode)
 (add-hook 'terraform-mode-hook #'rainbow-delimiters-mode)
 
@@ -304,3 +283,7 @@
 (define-key cider-repl-mode-map (kbd "C-c M-q") 'cider-quit)
 (define-key cider-mode-map (kbd "C-c M-r") 'sesman-restart)
 (define-key cider-repl-mode-map (kbd "C-c M-r") 'sesman-restart)
+
+(provide 'init)
+
+;;; init.el ends here
